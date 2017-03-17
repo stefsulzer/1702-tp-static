@@ -31,7 +31,7 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
 	console.error(err);
 	res.status(500);
-	res.render(err, err.stack, err.message);
+	res.render('error', { err: err.status, errMessage: err.message, errStack : err.stack});
 });
 
 app.listen(3000, function(){

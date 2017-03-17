@@ -1,4 +1,33 @@
-<!DOCTYPE>
+<!--<!DOCTYPE>
 <head></head>
-<body></body>
+<body>
+  -->
+
+{% extends "layout.html" %}
+
+{% block home %}
+<body>
+ <h1> Trip Planner! </h1>
+  <div> Hotels:
+    <select>
+       {% for hotel in hotels %}
+      <option value="hotels">{{hotel.name}}</option>
+      {% endfor %}
+    </select>
+    Restaurants:
+    <select>
+      {% for restaurant in restaurants %}
+      <option value="restaurants">{{restaurant.name}}</option>
+      {% endfor %}
+    </select>
+    Activities:
+    <select>
+      {% for activity in activities %}
+      <option value="activities">{{activity.name}}</option>
+      {% endfor %}
+    </select>
+ </div>
+</body>
+
+{% endblock %}
 
