@@ -4,7 +4,9 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var nunjucks = require('nunjucks');
 
+
 var app = express();
+var routes = require('./routes/index');
 
 app.engine('html', nunjucks.render); // how to render html templates
 app.set('view engine', 'html'); // what file extension do our templates have
@@ -16,6 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
 app.use(morgan('dev'));
+
+app.use('/trips', routes);
+// Can't get anything until there is a get for '/' set up for app or router
 
 app.use(function(req, res, next) {
   var err = new Error('Not found');
